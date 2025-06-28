@@ -11,10 +11,9 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-
 	r.HandleFunc("/shorten", handlers.ShortenURL).Methods("POST")
 	r.HandleFunc("/{shortID}", handlers.RedirectURL).Methods("GET")
 
-	log.Println("Server started at :8080")
+	log.Println("Server running on :8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
